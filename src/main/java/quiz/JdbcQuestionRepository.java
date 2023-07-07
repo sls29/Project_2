@@ -54,7 +54,7 @@ public class JdbcQuestionRepository {
                 String wrongAnswer = resultSet.getString("wrongAnswer");
 
                 Question question = new Question();
-   //question.setId(id);
+                question.setId(id);
                 question.setQuestionName(questionName);
                 question.setGoodAnswer(goodAnswer);
                 question.setWrongAnswer(wrongAnswer);

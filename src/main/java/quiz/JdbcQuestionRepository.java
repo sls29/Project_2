@@ -24,7 +24,7 @@ public class JdbcQuestionRepository {
         }
     }
 
-    public void addQuestion (Question question) {
+    public void addQuestion(Question question) {
         try (Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO questions (question, goodanswer, wronganswer) VALUES (?, ?, ?)")) {
@@ -54,8 +54,8 @@ public class JdbcQuestionRepository {
                 String wrongAnswer = resultSet.getString("wrongAnswer");
 
                 Question question = new Question();
-                question.setId(id);
-                question.setQuestionName(String.valueOf(question));
+   //question.setId(id);
+                question.setQuestionName(questionName);
                 question.setGoodAnswer(goodAnswer);
                 question.setWrongAnswer(wrongAnswer);
 

@@ -1,10 +1,10 @@
-<%@ page import="java.quiz.Question, java.quiz.JdbcQuestionRepository" %>
+<%@ page import="quiz.Question, quiz.JdbcQuestionRepository" %>
 
 <%
-  String question = request.getParameter("question");
+  String questionName = request.getParameter("questionName");
   String goodAnswer = request.getParameter("goodAnswer");
-  String badAnswer = request.getParameter("badAnswer");
-  Question question = new Question(question, goodAnswer, badAnswer);
+  String wrongAnswer = request.getParameter("wrongAnswer");
+  Question question = new Question(questionName, goodAnswer, wrongAnswer);
 
   JdbcQuestionRepository questionRepo = new JdbcQuestionRepository();
 

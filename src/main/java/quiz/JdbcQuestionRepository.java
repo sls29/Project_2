@@ -27,7 +27,8 @@ public class JdbcQuestionRepository {
     public void addQuestion(Question question) {
         try (Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO questions (question, goodanswer, wronganswer) VALUES (?, ?, ?)")) {
+                    "INSERT INTO questions (question, goodanswer, wronganswer)" +
+                            " VALUES (?, ?, ?)")) {
 
             statement.setString(1, question.getQuestionName());
             statement.setString(2, question.getGoodAnswer());

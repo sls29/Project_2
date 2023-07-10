@@ -1,13 +1,12 @@
 package quiz;
 
 
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import jakarta.servlet.ServletException;
-
-import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 @WebServlet("/addQuestion")
 public class AddQuestionServlet extends HttpServlet {

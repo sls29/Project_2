@@ -6,15 +6,7 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
-    <servlet>-->
-      <servlet-name>AddQuestionServlet</servlet-name>-->
-      <servlet-class>quiz.AddQuestionServlet</servlet-class>-->
-    </servlet>-->
 
-    <servlet-mapping>-->
-      <servlet-name>AddQuestionServlet</servlet-name>-->
-      <url-pattern>/addQuestion</url-pattern>-->
-    </servlet-mapping>-->
 
 
 </web-app>

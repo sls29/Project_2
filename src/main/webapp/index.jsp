@@ -16,7 +16,7 @@
         </head>
 
         <h1>Add Question</h1>
-            <form action="addQuestion.jsp">
+            <form action="addQuestion", method="post">
                 <div class="form-outline mb-4">
                     <input type="text" name="questionName" value="QuestionName..." onclick="this.value=''"/><br/>
                 </div>

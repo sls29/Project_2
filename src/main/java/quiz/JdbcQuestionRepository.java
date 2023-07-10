@@ -9,7 +9,6 @@ public class JdbcQuestionRepository {
     public JdbcQuestionRepository() {
         getConnection();
     }
-
     public static final String JDBC_DRIVER = "org.postgresql.Driver";
     public static final String DB_URL = "jdbc:postgresql://localhost:5432/quiz_db";
     public static final String DB_USER = "postgres";

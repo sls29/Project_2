@@ -15,13 +15,13 @@ public class AddQuestionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         JdbcQuestionRepository repository = new JdbcQuestionRepository();
 
+        String qName = req.getParameter("questionName");
+        String gAnswer = req.getParameter("goodAnswer");
+        String wAnswer = req.getParameter("wrongAnswer");
 
-        String questionName = req.getParameter("questionName");
-        String goodAnswer = req.getParameter("goodAnswer");
-        String wrongAnswer = req.getParameter("wrongAnswer");
-
-        Question question= new Question(questionName, goodAnswer, wrongAnswer);
+        Question question= new Question(qName, gAnswer, wAnswer);
         repository.addQuestion(question);
+
         resp.getOutputStream().println("Added!");
 
     }

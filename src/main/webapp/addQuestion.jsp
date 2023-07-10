@@ -12,4 +12,4 @@
 
 %>
 
-  <meta http-equiv="Refresh" content="0; url='/addQuestion" />
+  <meta http-equiv="Refresh" content="0; url='/Project_2" />

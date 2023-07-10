@@ -22,16 +22,32 @@
 
         <br/>
         <br/>
-        <h1>Question List</h1>
-        <table border="1" class="table table-dark w-25 p-3"
-            <tr>
-                <th>ID</th>
-                <th>Question</th>
-                <th>Good Answer</th>
-                <th>Wrong Answer</th>
-            </tr>
 
-        </table>
+
+        <h1>Question List from the index.jsp file</h1>
+            <table border="1" class="table table-dark w-25 p-3">
+                <tr>
+                    <th>ID</th>
+                    <th>Question</th>
+                    <th>RightAnswer</th>
+                    <th>WrongAnswer</th>
+
+                </tr>
+                <%
+                    JdbcQuestionRepository repository = new JdbcQuestionRepository();
+               //     JpaStudentRepository repository = new JpaStudentRepository();
+                    List<Question> questions = repository.getAllQuestions();
+                    for (Question question : questions) {
+                %>
+                    <tr>
+                        <td><%= question.getId() %></td>
+                        <td><%= question.getQuestionName() %></td>
+                        <td><%= question.getGoodAnswer() %></td>
+                        <td><%= question.getWrongAnswer() %></td>
+
+                    </tr>
+                <% } %>
+            </table>
 
     </body>
 </html>

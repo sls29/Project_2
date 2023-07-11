@@ -18,15 +18,15 @@ public class Question {
     private int id;
     private Topics topic;
     private String questionName;
-    private String[] goodAnswer;
-    private String wrongAnswer;
+    private String answerOption;
+    private String rightAnswer;
 
-    public Question (Topics topic, String questionName, String[] goodAnswer, String wrongAnswer) {
+    public Question (Topics topic, String questionName, String answerOption, String rightAnswer) {
 
         topic = this.topic;
         questionName = this.questionName;
-        goodAnswer = this.goodAnswer;
-        wrongAnswer = this.wrongAnswer;
+        rightAnswer = this.rightAnswer;
+        answerOption = this.answerOption;
     }
 
     public Question(){

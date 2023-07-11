@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import jakarta.servlet.ServletException;
 import java.io.IOException;
+import java.util.Arrays;
+
 @WebServlet("/addQuestion")
 public class AddQuestionServlet extends HttpServlet {
 
@@ -17,10 +19,10 @@ public class AddQuestionServlet extends HttpServlet {
 
         Topics topic = Topics.valueOf(req.getParameter("questionTopics"));
         String qName = req.getParameter("questionName");
-        String[] gAnswer = new String[]{req.getParameter("goodAnswer")};
-        String wAnswer = req.getParameter("wrongAnswer");
+        String aOptions = req.getParameter("answerOption");
+        String rAnswer = req.getParameter("rightAnswer");
 
-        Question question= new Question(topic, qName, gAnswer, wAnswer);
+        Question question= new Question(topic, qName, aOptions, rAnswer);
         repository.addQuestion(question);
 
         resp.getOutputStream().println("Added!");

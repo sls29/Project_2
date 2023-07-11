@@ -21,7 +21,6 @@
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
         </head>
 
-
         <h1>Add Question</h1>
             <form action="addQuestion", method="POST">
 
@@ -37,7 +36,7 @@
                     <input type="text" name="questionName" value="QuestionName..." onclick="this.value=''"/><br/>
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="text" name="answerOptions" value="answerOptions..." onclick="this.value=''"/><br/>
+                    <input type="text" name="answerOptions" value="AnswerOptions..." onclick="this.value=''"/><br/>
                 </div>
                 <div class="form-outline mb-4">
                      <input type="text" name="rightAnswer" value="RightAnswer..." onclick="this.value=''"/><br/>
@@ -49,7 +48,7 @@
         <br/>
         <h2>Quiz</h2>
             <br/>
-            <p2>A question from the quiz previewsey generated</p2>
+            <p2>A question from the quiz previously generated</p2>
             <br/>
             <form method="get" action="getAnswer.jsp" enctype=text/plain>
                 <INPUT TYPE="radio" name="command" value="0"/>True
@@ -65,8 +64,8 @@
                     <th>ID</th>
                     <th>Question</th>
                     <th>RightAnswer</th>
-                    <th>WrongAnswer</th>
-
+                    <th>AnswerOptions</th>
+                    <th>Topics</th>
                 </tr>
                     <%
                     JdbcQuestionRepository repository = new JdbcQuestionRepository();
@@ -77,9 +76,9 @@
                          <tr>
                             <td><%= question.getId() %></td>
                             <td><%= question.getQuestionName() %></td>
-                            <td><%= question.getGoodAnswer() %></td>
-                            <td><%= question.getWrongAnswer() %></td>
-
+                            <td><%= question.getRightAnswer() %></td>
+                            <td><%= question.getAnswerOption() %></td>
+                            <td><%= question.getTopic() %></td>
                         </tr>
                     <% } %>
             </table>

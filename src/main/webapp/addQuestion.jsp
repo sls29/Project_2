@@ -2,10 +2,11 @@
 
 <%
   String qName = request.getParameter("questionName");
-  String gAnswer = request.getParameter("goodAnswer");
-  String wAnswer = request.getParameter("wrongAnswer");
+  String gAnswer = request.getParameter("rightAnswer");
+  String aOption = request.getParameter("answerOption");
+  Topics topic = request.getParameter("topics");
 
-  Question question = new Question(qName, gAnswer, wAnswer);
+  Question question = new Question(qName, gAnswer, aOption, topic);
 
   JdbcQuestionRepository questionRepo = new JdbcQuestionRepository();
 

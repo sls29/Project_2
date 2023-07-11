@@ -26,18 +26,18 @@ public class JdbcQuestionRepository {
     public void addQuestion(Question question) {
         try (Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO questions (question, goodanswer, wronganswer)" +
+                    "INSERT INTO questions (question, rightanswer, answeroption, topics)" +
                             " VALUES (?, ?, ?)")) {
 
             statement.setString(1, question.getQuestionName());
-            statement.setString(2, question.getGoodAnswer());
-            statement.setString(3, question.getWrongAnswer());
+            statement.setString(2, question.getRightAnswer());
+            statement.setString(3, question.getAnswerOption());
+            statement.setString(3, question.getTopic().toString());
             statement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     public List<Question> getAllQuestions() {
@@ -50,14 +50,16 @@ public class JdbcQuestionRepository {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String questionName = resultSet.getString("question");
-                String goodAnswer = resultSet.getString("goodAnswer");
-                String wrongAnswer = resultSet.getString("wrongAnswer");
+                String rightAnswer = resultSet.getString("rightAnswer");
+                String answerOption = resultSet.getString("answerOption");
+                Topics topic = Topics.valueOf(resultSet.getString("topics"));
 
                 Question question = new Question();
                 question.setId(id);
                 question.setQuestionName(questionName);
-                question.setGoodAnswer(goodAnswer);
-                question.setWrongAnswer(wrongAnswer);
+                question.setRightAnswer(rightAnswer);
+                question.setAnswerOption(answerOption);
+                question.setTopic(topic);
 
                 questions.add(question);
             }

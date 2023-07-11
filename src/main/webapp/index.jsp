@@ -4,6 +4,11 @@
 <%@ page import="quiz.Question" %>
 
 <html>
+    <style>
+    table, th, td {
+      border-collapse: collapse;
+    }
+    </style>
     <body>
         <head>
         <!-- This will make the table look nicer -->
@@ -15,8 +20,9 @@
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
         </head>
 
+
         <h1>Add Question</h1>
-            <form action="addQuestion.jsp">
+            <form action="addQuestion", method="POST">
                 <div class="form-outline mb-4">
                     <input type="text" name="questionName" value="QuestionName..." onclick="this.value=''"/><br/>
                 </div>
@@ -34,8 +40,8 @@
         <br/>
 
 
-        <h1>Question List from the index.jsp file</h1>
-            <table border="1" class="table table-dark w-25 p-3">
+        <h1>Question List</h1>
+            <table border="1" class="table table-dark w-125 p-3" style="width:100%">
                 <tr>
                     <th>ID</th>
                     <th>Question</th>

@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="quiz.JdbcQuestionRepository" %>
 <%@ page import="quiz.Question" %>
+<%@ page import="quiz.Topics" %>
 
 <html>
     <style>
@@ -23,24 +24,42 @@
 
         <h1>Add Question</h1>
             <form action="addQuestion", method="POST">
+
+                <label for="topics">Choose a topic:</label>
+                    <select name="topics" id="topics">
+                        <option value="topic1"><%=Topics.JAVA %></option>
+                        <option value="topic2"><%=Topics.PERL %></option>
+                        <option value="topic3"><%=Topics.PYTHON %></option>
+                        <option value="topic4"><%=Topics.C %></option>
+                    </select>
+                <br/>
                 <div class="form-outline mb-4">
                     <input type="text" name="questionName" value="QuestionName..." onclick="this.value=''"/><br/>
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="text" name="goodAnswer" value="GoodAnswer..." onclick="this.value=''"/><br/>
+                    <input type="text" name="answerOptions" value="answerOptions..." onclick="this.value=''"/><br/>
                 </div>
                 <div class="form-outline mb-4">
-                     <input type="text" name="wrongAnswer" value="WrongAnswer..." onclick="this.value=''"/><br/>
+                     <input type="text" name="rightAnswer" value="RightAnswer..." onclick="this.value=''"/><br/>
                 </div>
             <br/>
             <input type="submit" value="Add question" class="btn btn-primary btn-block"/>
             </form>
 
         <br/>
+        <h2>Quiz</h2>
+            <br/>
+            <p2>A question from the quiz previewsey generated</p2>
+            <br/>
+            <form method="get" action="getAnswer.jsp" enctype=text/plain>
+                <INPUT TYPE="radio" name="command" value="0"/>True
+                <INPUT TYPE="radio" NAME="command" VALUE="1"/>False
+                <INPUT TYPE="submit" VALUE="submit" class="btn btn-primary btn-block"/>
+            </form>
         <br/>
 
 
-        <h1>Question List</h1>
+        <h3>Question List</h3>
             <table border="1" class="table table-dark w-125 p-3" style="width:100%">
                 <tr>
                     <th>ID</th>

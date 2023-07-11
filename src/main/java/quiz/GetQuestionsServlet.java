@@ -20,7 +20,7 @@ public class GetQuestionsServlet extends HttpServlet {
         resp.getWriter().println("<html>");
         resp.getWriter().println("<head><title>Question List From DO GET method</title></head>");
         resp.getWriter().println("<body>");
-        resp.getWriter().println("<h1>Question List From DO GET method</h1>");
+        resp.getWriter().println("<h1>Question List</h1>");
         resp.getWriter().println("<table border=\"1\">");
         resp.getWriter().println("<tr><th>ID</th><th>QuestionName</th><th>RightAnswer</th><th>WrongAnswer</th></tr>");
 

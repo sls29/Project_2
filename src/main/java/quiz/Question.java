@@ -16,12 +16,14 @@ import lombok.ToString;
 public class Question {
     @Id
     private int id;
+    private Topics topic;
     private String questionName;
-    private String goodAnswer;
+    private String[] goodAnswer;
     private String wrongAnswer;
 
-    public Question (String questionName, String goodAnswer, String wrongAnswer) {
+    public Question (Topics topic, String questionName, String[] goodAnswer, String wrongAnswer) {
 
+        topic = this.topic;
         questionName = this.questionName;
         goodAnswer = this.goodAnswer;
         wrongAnswer = this.wrongAnswer;

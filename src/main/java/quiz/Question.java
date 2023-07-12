@@ -1,8 +1,6 @@
 package quiz;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,18 +13,21 @@ import lombok.ToString;
 
 public class Question {
     @Id
-    private int id;
-    private Topics topic;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    private Topic topic;
     private String questionName;
     private String answerOption;
     private String rightAnswer;
 
-    public Question (Topics topic, String questionName, String answerOption, String rightAnswer) {
+    public Question (String questionName, String rightAnswer, String answerOption, Topic topic) {
 
-        topic = this.topic;
         questionName = this.questionName;
         rightAnswer = this.rightAnswer;
         answerOption = this.answerOption;
+        topic = this.topic;
     }
 
     public Question(){

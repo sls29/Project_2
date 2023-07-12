@@ -6,9 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import jakarta.servlet.ServletException;
 import java.io.IOException;
-import java.util.Arrays;
 
 @WebServlet("/addQuestion")
 public class AddQuestionServlet extends HttpServlet {
@@ -17,12 +15,13 @@ public class AddQuestionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         JdbcQuestionRepository repository = new JdbcQuestionRepository();
 
-        Topics topic = Topics.valueOf(req.getParameter("questionTopics"));
-        String qName = req.getParameter("questionName");
-        String aOptions = req.getParameter("answerOption");
-        String rAnswer = req.getParameter("rightAnswer");
 
-        Question question= new Question(topic, qName, aOptions, rAnswer);
+        String questionName = req.getParameter("questionName");
+        String rightAnswer = req.getParameter("rightAnswer");
+        String answerOption = req.getParameter("answerOption");
+        Topic topic = Topic.valueOf(req.getParameter("topic"));
+
+        Question question= new Question( questionName, rightAnswer, answerOption, topic);
         repository.addQuestion(question);
 
         resp.getOutputStream().println("Added!");

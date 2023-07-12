@@ -27,12 +27,12 @@ public class JdbcQuestionRepository {
         try (Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO questions (question, rightanswer, answeroption, topics)" +
-                            " VALUES (?, ?, ?)")) {
+                            " VALUES (?, ?, ?, ?)")) {
 
             statement.setString(1, question.getQuestionName());
             statement.setString(2, question.getRightAnswer());
             statement.setString(3, question.getAnswerOption());
-            statement.setString(3, question.getTopic().toString());
+            statement.setString(4, question.getTopic().toString());
             statement.executeUpdate();
 
         } catch (SQLException e) {
@@ -52,10 +52,10 @@ public class JdbcQuestionRepository {
                 String questionName = resultSet.getString("question");
                 String rightAnswer = resultSet.getString("rightAnswer");
                 String answerOption = resultSet.getString("answerOption");
-                Topics topic = Topics.valueOf(resultSet.getString("topics"));
+                Topic topic = Topic.valueOf(resultSet.getString("topics"));
 
                 Question question = new Question();
-                question.setId(id);
+                question.setId((long) id);
                 question.setQuestionName(questionName);
                 question.setRightAnswer(rightAnswer);
                 question.setAnswerOption(answerOption);

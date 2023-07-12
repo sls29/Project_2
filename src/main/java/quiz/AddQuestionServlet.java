@@ -5,8 +5,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.IOException;
+@Getter
+@Setter
 
 @WebServlet("/addQuestion")
 public class AddQuestionServlet extends HttpServlet {
@@ -21,7 +25,7 @@ public class AddQuestionServlet extends HttpServlet {
         String answerOption = req.getParameter("answerOption");
         Topic topic = Topic.valueOf(req.getParameter("topic"));
 
-        Question question= new Question( questionName, rightAnswer, answerOption, topic);
+        Question question = new Question( questionName, rightAnswer, answerOption, topic);
         repository.addQuestion(question);
 
         resp.getOutputStream().println("Added!");

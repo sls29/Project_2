@@ -24,10 +24,10 @@ public class Question {
 
     public Question (String questionName, String rightAnswer, String answerOption, Topic topic) {
 
-        questionName = this.questionName;
-        rightAnswer = this.rightAnswer;
-        answerOption = this.answerOption;
-        topic = this.topic;
+        this.questionName = questionName;
+        this.rightAnswer = rightAnswer;
+        this.answerOption = answerOption;
+        this.topic = topic;
     }
 
     public Question(){

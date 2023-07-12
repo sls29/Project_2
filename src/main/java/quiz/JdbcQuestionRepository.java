@@ -1,9 +1,13 @@
 package quiz;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.sql.*;
 import java.util.*;
 
-
+@Getter
+@Setter
 public class JdbcQuestionRepository {
 
     public JdbcQuestionRepository() {
@@ -50,8 +54,8 @@ public class JdbcQuestionRepository {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String questionName = resultSet.getString("question");
-                String rightAnswer = resultSet.getString("rightAnswer");
-                String answerOption = resultSet.getString("answerOption");
+                String rightAnswer = resultSet.getString("rightanswer");
+                String answerOption = resultSet.getString("answeroption");
                 Topic topic = Topic.valueOf(resultSet.getString("topics"));
 
                 Question question = new Question();
